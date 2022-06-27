@@ -1,0 +1,51 @@
+command_timeout = 1000
+
+format = """
+[╭╴](white)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$line_break\
+[╰─](white) """
+
+[username]
+disabled = true
+style_root = "yellow"
+style_user = "yellow"
+show_always = false
+format = "[\\[](bright-black)[]($style) [$user]($style)[@]($style)"
+
+[hostname]
+disabled = false
+style = "yellow"
+ssh_only = false
+format = "[\\[](bright-black)[]($style) [$hostname]($style)[\\]](bright-black)"
+
+[directory]
+disabled = false
+style = "green"
+read_only = " "
+read_only_style = "green"
+home_symbol = "C:\\Users\\Jackson"
+truncate_to_repo = false
+format = "[\\[](bright-black)[]($style) [$read_only]($read_only_style)[$path]($style)[\\]](bright-black)"
+
+[git_branch]
+disabled = false
+style = "blue"
+symbol = ""
+format = "[\\[](bright-black)[$symbol]($style) [$branch]($style)[\\]](bright-black)"
+
+[git_status]
+disabled = true
+style = "blue"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+format = "[[($conflicted$untracked$modified$staged$renamed$deleted)]($style)($ahead_behind$stashed)]($style)[\\]](bright-black)"
