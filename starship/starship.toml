@@ -2,13 +2,21 @@ command_timeout = 1000
 
 format = """
 [╭╴](white)\
+$shell\
 $username\
 $hostname\
 $directory\
 $git_branch\
 $git_status\
 $line_break\
-[╰─](white) """
+[╰───](white) """
+
+[shell]
+disabled = false
+style = "white"
+powershell_indicator = ""
+bash_indicator = ""
+cmd_indicator = ""
 
 [username]
 disabled = true
