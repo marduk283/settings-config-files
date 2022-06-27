@@ -166,7 +166,7 @@ Alias: els
 #>
 
 function Enable-LockScreen {
-    New-Item "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" -Force | New-ItemProperty -Name "NoLockScreen" -PropertyType "DWord" -Value "0" -Force
+    New-Item "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" -Force | New-ItemProperty -Name "NoLockScreen" -PropertyType "DWord" -Value "0" -Force | Out-Null
 
     Write-Output "Lock screen enabled."
 }
@@ -178,7 +178,7 @@ Alias: dls
 #>
 
 function Disable-LockScreen {
-    New-Item "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" -Force | New-ItemProperty -Name "NoLockScreen" -PropertyType "DWord" -Value "1" -Force
+    New-Item "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" -Force | New-ItemProperty -Name "NoLockScreen" -PropertyType "DWord" -Value "1" -Force | Out-Null
 
     Write-Output "Lock screen disabled."
 }
