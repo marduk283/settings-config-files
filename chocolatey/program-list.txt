@@ -19,6 +19,7 @@ gdlauncher
 git
 gmkvextractgui
 iobit-uninstaller
+jellyfin-media-player
 joplin
 jpegview
 kdenlive
