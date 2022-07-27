@@ -1,6 +1,7 @@
 7zip 
 bleachbit
 bulkrenameutility
+cascadia-code-nerd-font
 crystaldiskinfo
 discord
 ditto
@@ -13,6 +14,7 @@ everything
 exiftool
 f.lux
 ffmpeg
+firacodenf
 firefox
 foxitreader
 gdlauncher
@@ -20,6 +22,7 @@ git
 gmkvextractgui
 iobit-uninstaller
 jellyfin-media-player
+jetbrainsmononf
 joplin
 jpegview
 kdenlive
