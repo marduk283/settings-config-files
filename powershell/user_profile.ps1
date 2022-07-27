@@ -216,6 +216,45 @@ function Get-Functions {
     Write-Output "Set-EnvVar (sev)"
 }
 
+# Install Chocolatey
+function Install-Chocolatey {
+    Write-Output "Installing Chocolatey..."
+
+    Set-ExecutionPolicy Bypass -Scope Process -Force
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+    choco feature enable -n allowGlobalConfirmation
+
+    Write-Output "Installed Chocolatey."
+}
+
+# Install programs
+function Install-Programs {
+    Write-Output "Installing programs..."
+
+    # Install Chocolatey programs
+
+    $programs = Get-Content "N:\git-repos\settings-config-files\chocolatey\program-list.txt"
+
+    $programs.foreach{
+        choco install $_ --ignorechecksum
+        Write-Output "$_ installed."
+    }
+
+    # Voicemeeter Banana
+    Invoke-WebRequest -Uri "https://download.vb-audio.com/Download_CABLE/VoicemeeterProSetup.exe" -OutFile "C:\vm.exe"
+    Start-Process "C:\vm.exe"
+    Pause
+
+    Remove-Item "C:\vm.exe" -Force
+
+    # Wallpaper-cli
+    #npm install --global wallpaper-cli
+
+    Write-Output "Installed programs."
+}
+
 # Set aliases
 Set-Alias -Name "cs" -Value "Clean-System" -Option AllScope -Force
 Set-Alias -Name "els" -Value "Enable-LockScreen" -Option AllScope -Force

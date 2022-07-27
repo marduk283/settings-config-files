@@ -31,7 +31,7 @@ services:
             - TZ=America/New_York
         volumes:
             - /docker/jellyfin/config:/config
-            - /mnt/m/Anime:/anime
+            - /mnt/m/anime:/anime
             - /mnt/m/Movies:/movies
         ports:
             - 8096:8096
@@ -122,3 +122,10 @@ services:
         #network_mode: service:vpn
         #depends_on:
          #   - vpn
+
+    stash-chromium:
+        image: chromedp/headless-shell:latest
+        container_name: stash-chromium
+        restart: unless-stopped
+        ports:
+            - 9222:9222
